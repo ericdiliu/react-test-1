@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux';
+import ReduxPromise from 'redux-promise';
 import logo from './logo.svg';
 import './App.css';
 import BookList from './containers/book-list';
 import BookDetail from './containers/book-detail';
 import SearchBar from './containers/weather-search-bar';
+import WeatherList from './containers/weather-list';
 import reducers from './reducers';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 class App extends Component {
   render() {
@@ -27,6 +29,7 @@ class App extends Component {
           <div><BookDetail/></div>
         </div>
           <div className="col-md-12"><SearchBar/></div>
+        <div className="col-md-12"><WeatherList/></div>
       </div>
         </Provider>
     );
